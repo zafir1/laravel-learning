@@ -17,7 +17,7 @@ class projectsController extends Controller
     }
 
     public function show(){
-
+        return redirect('/projects');
     }
 
     public function edit($id){
@@ -35,8 +35,9 @@ class projectsController extends Controller
         return redirect('/projects');
     }
 
-    public function destory(){
-        
+    public function destroy($id){
+        projects::find($id)->delete();
+        return redirect('/projects');
     }
 
     public function create(){

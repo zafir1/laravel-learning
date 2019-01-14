@@ -4,7 +4,6 @@ Route::get('/about','pagesController@about');
 Route::get('/contact','pagesController@contact');
 
 // Projects
-Route::get('projects/{$project}/delete', 'projectsController@delete');
 Route::resource('projects','projectsController');
 
 

@@ -19,8 +19,13 @@
 				<td> {{ $project->description }} </td>
 				<td>
 					{{ csrf_field() }}
-					<a href="/projects/{{ $project->id }}/edit" class="btn btn-danger"> <i class="far fa-edit"></i> </a>
-					<a href="/projects/{{ $project->id }}/delete" class="btn btn-success"> <i class="far fa-trash-alt"></i> </a>
+					<a href="/projects/{{ $project->id }}/edit" class="btn btn-success"> <i class="far fa-edit"></i> </a>
+					{{-- <a href="/projects/{{ $project->id }}/delete" class="btn btn-success"> <i class="far fa-trash-alt"></i> </a> --}}
+					<form action="/projects/{{ $project->id }}" method="POST">
+					{{ method_field('DELETE') }}
+					{{ csrf_field() }}
+					<button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+					</form>
 				</td>
 			</tr>
 		@endforeach
