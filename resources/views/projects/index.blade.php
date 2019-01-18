@@ -10,13 +10,11 @@
 	<table class="table">
 		<thead>
 			<th>Title</th>
-			<th>Description</th>
 			<th>Action</th>
 		</thead>
 		@foreach($projects as $project)
 			<tr>
-				<td> {{ $project->title }} </td>
-				<td> {{ $project->description }} </td>
+				<td> <a href="/projects/{{ $project->id }}">{{ $project->title }}</a> </td>
 				<td>
 					{{ csrf_field() }}
 					<a href="/projects/{{ $project->id }}/edit" class="btn btn-success"> <i class="far fa-edit"></i> </a>

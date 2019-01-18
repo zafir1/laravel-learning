@@ -16,8 +16,13 @@ class projectsController extends Controller
     	]);
     }
 
-    public function show(){
-        return redirect('/projects');
+    public function show(Projects $project){
+        
+        // return $project;
+        // $project =  projects::findOrFail($id);
+        return view('/projects.show',[
+            'project' => $project,
+        ]);
     }
 
     public function edit($id){
