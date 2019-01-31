@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -16,8 +15,7 @@ class projectsController extends Controller
     	]);
     }
 
-    public function show(Projects $project){
-        
+    public function show(projects $project){
         // return $project;
         // $project =  projects::findOrFail($id);
         return view('/projects.show',[
@@ -25,23 +23,26 @@ class projectsController extends Controller
         ]);
     }
 
-    public function edit($id){
-        $project = projects::find($id);
+    public function edit(projects $project){
+        // $project = projects::find($id);
         return view('projects.edit',[
             'project' => $project,
         ]);
     }
+    
+    public function update(projects $project){
+        // $project = projects::find($id);
+        $project->update(request(['title','description']));
 
-    public function update($id){
-        $project = projects::find($id);
-        $project->title = request('title');
+        /*$project->title = request('title');
         $project->description = request('description');
-        $project->save();
+        $project->save();*/
+
         return redirect('/projects');
     }
 
-    public function destroy($id){
-        projects::find($id)->delete();
+    public function destroy(projects $project){
+        $project->delete();
         return redirect('/projects');
     }
 
@@ -50,11 +51,22 @@ class projectsController extends Controller
     }
 
     public function store(){
-        $project = new projects();
+        projects::create(request(['title','description']));
+        return redirect('/projects');
+
+        // 2nd and comparitively short method
+        /*projects::create([
+            'title' => request('title'),
+            'description' => request('description')
+        ]);
+        return redirect('/projects');*/
+
+        // 1st and very long method
+        /*$project = new projects();
         $project->title = request()->title;
         $project->description = request()->description;
         $project->save();
-        return redirect('/projects');
+        return redirect('/projects');*/
     }
 
     

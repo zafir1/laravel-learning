@@ -2,7 +2,8 @@
 
 @section('content')
 	<form action="/projects" method="POST" class="form-group">
-		{{ csrf_field() }}
+		{{-- {{ csrf_field() }} --}}
+		@csrf
 		<b>Title: </b> 
 		<br>
 		<input type="text" name='title' class="form-control" placeholder="Enter the title of the project..." 

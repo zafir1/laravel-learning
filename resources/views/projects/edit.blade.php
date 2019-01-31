@@ -6,7 +6,8 @@
 	<div class="title h1">Edit Project</div>
 	<form action="/projects/{{ $project->id }}" method="POST" class="form-group">
 		{{ method_field('PATCH') }}
-		{{ csrf_field() }}
+		{{-- {{ csrf_field() }} --}}
+		@csrf
 		<b>Title: </b><br>
 		<input type="text" name="title" class="form-control" autocomplete="off" value="{{ $project->title }}"><br>
 		<b>Description: </b> <br>
