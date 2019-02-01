@@ -55,7 +55,6 @@ class projectsController extends Controller
             'title' => ['required','min:5','max:200'],
             'description' => ['required','min:10','max:50000']
         ]);
-
         projects::create($validate);
         // projects::create(request(['title','description']));
         return redirect('/projects');

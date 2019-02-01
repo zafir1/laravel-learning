@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class pagesController extends Controller
 {
     public function home(){
+        return redirect('/projects');
     	$tasks = [
 		"Go to Market",
 		"Go to store",
