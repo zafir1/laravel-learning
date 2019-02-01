@@ -5,8 +5,19 @@ Route::get('/contact','pagesController@contact');
 
 // Projects
 Route::resource('projects','projectsController');
+// Route::resource('/tasks/{$task}','projectTasksController@update');
 
+Route::patch('tasks/{$task}', function() {
+    dd('Hello');
+});
 
+Route::post('tasks/{$task}', function() {
+    dd('Post');
+});
+
+Route::get('tasks/{$task}', function() {
+    dd('get');
+});
 
 // Route::get('/projects','projectsController@index');
 // Route::get('/projects/create','projectsController@create');

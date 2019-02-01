@@ -15,5 +15,16 @@ class projects extends Model
     	'title','description'
     ];
 
+   /**
+    * projects has many Task.
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+   public function task()
+   {
+   	// hasMany(RelatedModel, foreignKeyOnRelatedModel = projects_id, localKey = id)
+   	return $this->hasMany(Task::class);
+   }
+
     // protected $guarded = [];
 }
