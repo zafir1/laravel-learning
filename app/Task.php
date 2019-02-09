@@ -17,4 +17,14 @@ class Task extends Model
     	// belongsTo(RelatedModel, foreignKey = projects_id, keyOnRelatedModel = id)
     	return $this->belongsTo(Projects::class);
     }
+
+    public function complete($complete = true)
+    {
+        $this->update(['completed'=> $complete]);
+    }
+
+    public function incomplete()
+    {
+        $this->complete(false);
+    }
 }

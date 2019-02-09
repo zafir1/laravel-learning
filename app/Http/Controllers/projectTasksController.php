@@ -11,26 +11,19 @@ class projectTasksController extends Controller
     
     public function index()
     {
-        
+        return redirect('/');
     }
 
     
     public function create()
     {
-        
+        return redirect('/');
     }
 
     
     public function store(projects $project)
     {
-        request()->validate([
-            'description' => ['required']
-        ]);
-
-        Task::create([
-            'projects_id' => $project->id,
-            'description' => request()->description
-        ]);
+        $project->addTask(request('description'));
         return back();
     }
 
@@ -43,22 +36,20 @@ class projectTasksController extends Controller
     
     public function edit($id)
     {
-        
+        return redirect('/');
     }
 
     
     public function update(Task $task)
     {
-        // return request()->all();
-        $task->update([
-            'completed' => request()->has('completed')
-        ]);
+        $method = request()->has('completed') ? 'complete' : 'incomplete';
+        $task->$method();
         return back();
     }
 
     
     public function destroy($id)
     {
-        
+        return redirect('/');
     }
 }

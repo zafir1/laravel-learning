@@ -28,7 +28,7 @@
 		{{-- Tasklist associated to this Project --}}
 		@if($project->task()->count())
 			<div class="card">
-				<h5 class="card-header">Task Associated with {{ $project->title }}</h5>
+				<h5 class="card-header">Task Associated with <b class="text-primary"><i>{{ $project->title }}</i></b></h5>
 				<div class="card-body">
 				@foreach($project->task as $task)
 					<div>
